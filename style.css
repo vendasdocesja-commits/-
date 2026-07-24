@@ -6,6 +6,7 @@
   --accent: #ffd28a;
   --card: #ffffff;
   --radius: 18px;
+  --instagram: #E4405F;
 }
 
 *{
@@ -93,6 +94,49 @@ section h2{text-align:center;margin-bottom:28px;color:var(--brown-700);font-size
 .card p{color:#6a4f46}
 .price{margin-top:16px;color:#b85b16;font-weight:700}
 
+#instagram{background:linear-gradient(135deg, #fdf6f0 0%, #fff8f2 100%)}
+
+.instagram-box{
+  max-width:600px;
+  margin:0 auto;
+  background:linear-gradient(135deg, #E4405F 0%, #d63447 100%);
+  border-radius:26px;
+  padding:60px 40px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(228,64,95,0.25);
+  color:#fff;
+}
+
+.instagram-box h3{
+  font-size:36px;
+  margin-bottom:16px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.instagram-box p{
+  font-size:16px;
+  line-height:1.7;
+  margin-bottom:28px;
+  opacity:0.95;
+}
+
+.instagram-box .btn.instagram{
+  background:#fff;
+  color:var(--instagram);
+  border:none;
+  padding:14px 32px;
+  font-weight:700;
+  font-size:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  transition:all .3s;
+}
+
+.instagram-box .btn.instagram:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.2);
+}
+
 #sobre,#contato{max-width:900px;margin:0 auto;text-align:center;color:#5a3b32}
 
 .feedback-box{
@@ -152,6 +196,8 @@ footer{background:var(--brown-700);color:#fff;padding:28px 0;margin-top:40px;tex
   .main-nav a{margin-left:12px}
   .header-inner{flex-direction:column;align-items:flex-start;gap:14px}
   .main-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+  .instagram-box{padding:40px 30px}
+  .instagram-box h3{font-size:28px}
 }
 
 @media(max-width:640px){
@@ -160,6 +206,9 @@ footer{background:var(--brown-700);color:#fff;padding:28px 0;margin-top:40px;tex
   .hero-text h1{font-size:28px}
   .hero-text p{font-size:16px}
   .hero-ctas{flex-direction:column;align-items:center}
+  .instagram-box{padding:30px 20px}
+  .instagram-box h3{font-size:24px}
+  .instagram-box p{font-size:14px}
 }
 
 @media(max-width:480px){
@@ -170,4 +219,7 @@ footer{background:var(--brown-700);color:#fff;padding:28px 0;margin-top:40px;tex
   .cards{gap:18px}
   section{padding:50px 0}
   .about-card{padding:22px 20px;font-size:15px}
+  .instagram-box{padding:25px 18px}
+  .instagram-box h3{font-size:22px;margin-bottom:12px}
+  .instagram-box p{font-size:13px;margin-bottom:20px}
 }
