@@ -1,1371 +1,347 @@
-/* ==========================================================
-   RESET
-========================================================== */
-
-*,
-*::before,
-*::after{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root{
+  --bg: #fff8f2;
+  --brown-900: #3c2418;
+  --brown-700: #5d3a1a;
+  --brown-500: #8b4513;
+  --accent: #ffd28a;
+  --card: #ffffff;
+  --radius: 18px;
+  --instagram: #E4405F;
 }
 
-html{
-    scroll-behavior:smooth;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
+html{scroll-behavior:smooth}
 
 body{
-    background:var(--bg);
-    color:var(--brown-900);
-    font-family:'Poppins',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    padding-top:88px;
+  background:var(--bg);
+  color:var(--brown-900);
+  -webkit-font-smoothing:antialiased;
+  padding-top:88px;
 }
-
-img{
-    display:block;
-    max-width:100%;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-
-/* ==========================================================
-   VARIÁVEIS
-========================================================== */
-
-:root{
-
-    /* Cores principais */
-
-    --bg:#fff8f2;
-    --brown-900:#3c2418;
-    --brown-700:#5d3a1a;
-    --brown-500:#8b4513;
-
-    --accent:#ffd28a;
-
-    --card:#ffffff;
-
-    --instagram:#E4405F;
-
-
-    /* Cores auxiliares */
-
-    --text-primary:#5a3b32;
-    --text-secondary:#6a4f46;
-
-
-    /* Bordas */
-
-    --radius-sm:10px;
-    --radius-md:18px;
-    --radius-lg:26px;
-    --radius-pill:999px;
-
-
-    /* Sombras */
-
-    --shadow-header:
-        0 6px 18px rgba(60,36,24,.12);
-
-    --shadow-logo:
-        0 8px 20px rgba(0,0,0,.15);
-
-    --shadow-card:
-        0 12px 30px rgba(0,0,0,.07);
-
-    --shadow-image:
-        0 18px 50px rgba(0,0,0,.18);
-
-
-    /* Transições */
-
-    --transition-fast:.2s ease;
-
-    --transition-default:.3s ease;
-
-
-    /* Espaçamentos */
-
-    --space-xs:8px;
-    --space-sm:12px;
-    --space-md:18px;
-    --space-lg:22px;
-    --space-xl:40px;
-    --space-xxl:60px;
-
-
-    /* Bordas */
-
-    --border-card:
-        1px solid rgba(139,69,19,.08);
-
-}
-
-
-/* ==========================================================
-   ACESSIBILIDADE
-========================================================== */
-
-a:focus-visible,
-button:focus-visible{
-
-    outline:3px solid var(--accent);
-
-    outline-offset:4px;
-
-}
-
-a:active,
-button:active{
-
-    transform:scale(.98);
-
-}
-
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        transition-duration:.01ms !important;
-        scroll-behavior:auto !important;
-
-    }
-
-}
-
-
-/* ==========================================================
-   LAYOUT
-========================================================== */
 
 .container{
-
-    width:92%;
-
-    max-width:1200px;
-
-    margin:0 auto;
-
+  width:92%;
+  max-width:1200px;
+  margin:0 auto;
 }
-
-
-section{
-
-    position:relative;
-
-    padding:70px 0;
-
-}
-
-
-section h2{
-
-    position:relative;
-
-    z-index:1;
-
-    margin-bottom:28px;
-
-    color:var(--brown-700);
-
-    text-align:center;
-
-    font-size:32px;
-
-}
-
-
-/* ==========================================================
-   HEADER
-========================================================== */
 
 header{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    z-index:1200;
-
-    background:rgba(93,58,26,.95);
-
-    color:#fff;
-
-    box-shadow:var(--shadow-header);
-
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(93,58,26,0.95);
+  color:#fff;
+  z-index:1200;
+  box-shadow:0 6px 18px rgba(60,36,24,0.12);
 }
-
 
 .header-inner{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:14px 0;
-
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
 }
 
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand-logo{width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,0.15)}
+.brand-text{font-weight:700;font-size:20px}
 
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    color:inherit;
-
-    text-decoration:none;
-
-}
-
-
-.brand-logo{
-
-    width:56px;
-
-    height:56px;
-
-    object-fit:cover;
-
-    border-radius:var(--radius-sm);
-
-    box-shadow:var(--shadow-logo);
-
-}
-
-
-.brand-text{
-
-    font-size:20px;
-
-    font-weight:700;
-
-}
-
-
-.main-nav a{
-
-    position:relative;
-
-    margin-left:18px;
-
-    color:#fff;
-
-    font-weight:600;
-
-    transition:
-        color var(--transition-fast);
-
-}
-
-
-.main-nav a:hover{
-
-    color:var(--accent);
-
-}
-
-
-.main-nav a:focus-visible{
-
-    color:var(--accent);
-
-} /* ==========================================================
-   HERO
-========================================================== */
+.main-nav a{color:#fff;text-decoration:none;margin-left:18px;font-weight:600;transition:color .2s}
+.main-nav a:hover{color:var(--accent)}
 
 .hero{
-
-    padding-top:110px;
-
-    padding-bottom:60px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(255,210,138,.35) 0%,
-            transparent 45%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(139,69,19,.10) 0%,
-            transparent 50%
-        ),
-        var(--bg);
-
+  padding-top:110px;
+  padding-bottom:60px;
+  background: radial-gradient(circle at 15% 20%, rgba(255,210,138,0.35) 0%, transparent 45%),
+              radial-gradient(circle at 85% 80%, rgba(139,69,19,0.10) 0%, transparent 50%),
+              var(--bg);
+  position: relative;
+  overflow: hidden;
 }
-
 
 .hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-40px;
-
-    right:-40px;
-
-    width:220px;
-
-    height:220px;
-
-    border-radius:50%;
-
-    background:var(--accent);
-
-    opacity:.15;
-
-    filter:blur(10px);
-
+  content:"";
+  position:absolute;
+  top:-40px; right:-40px;
+  width:220px; height:220px;
+  background: var(--accent);
+  opacity:0.15;
+  border-radius:50%;
+  filter: blur(10px);
 }
-
 
 .hero-content{
-
-    position:relative;
-
-    z-index:1;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:40px;
-
-    padding:60px 0;
-
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:60px 0;
+  position:relative;
+  z-index:1;
 }
 
+.hero-text{flex:1;max-width:640px}
+.hero-text h1{font-size:44px;color:var(--brown-700);margin-bottom:18px}
+.hero-text p{font-size:18px;line-height:1.6;color:#5a3b32;margin-bottom:22px}
 
-.hero-text{
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700}
+.btn.primary{background:var(--brown-500);color:#fff;border:2px solid #fff;box-shadow:0 12px 25px rgba(139,69,19,0.2);transition:transform .2s,box-shadow .2s}
+.btn.primary:hover{background:#a0522d;transform:translateY(-2px);box-shadow:0 18px 28px rgba(139,69,19,0.28)}
+.btn.ghost{background:transparent;border:2px solid rgba(93,58,26,0.12);color:var(--brown-700)}
 
-    flex:1;
+.hero-media{width:360px;flex-shrink:0;text-align:center}
+.hero-logo{width:100%;max-width:360px;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,0.18);object-fit:cover}
 
-    max-width:640px;
+section{padding:70px 0;position:relative}
 
-}
+section h2{text-align:center;margin-bottom:28px;color:var(--brown-700);font-size:32px;position:relative;z-index:1}
 
-
-.hero-text h1{
-
-    margin-bottom:18px;
-
-    color:var(--brown-700);
-
-    font-size:44px;
-
-}
-
-
-.hero-text p{
-
-    margin-bottom:22px;
-
-    color:var(--text-primary);
-
-    font-size:18px;
-
-    line-height:1.6;
-
-}
-
-
-.hero-media{
-
-    width:360px;
-
-    flex-shrink:0;
-
-    text-align:center;
-
-}
-
-
-.hero-logo{
-
-    width:100%;
-
-    max-width:360px;
-
-    object-fit:cover;
-
-    border-radius:var(--radius-md);
-
-    box-shadow:var(--shadow-image);
-
-}
-
-
-/* ==========================================================
-   DELIVERY BADGE
-========================================================== */
-
-.hero-delivery-info{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
-
-    margin:16px 0 22px;
-
-}
-
-
-.delivery-badge{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    width:fit-content;
-
-    padding:7px 16px;
-
-    border-radius:20px;
-
-    border:
-        1px solid rgba(139,69,19,.25);
-
-    background:
-        rgba(255,210,138,.35);
-
-    color:var(--brown-700);
-
-    font-size:.9rem;
-
-    font-weight:600;
-
-}
-
-
-/* ==========================================================
-   BOTÕES
-========================================================== */
-
-.hero-ctas{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-}
-
-
-.btn{
-
-    display:inline-block;
-
-    padding:12px 22px;
-
-    border-radius:var(--radius-pill);
-
-    text-decoration:none;
-
-    font-weight:700;
-
-}
-
-
-.btn.primary{
-
-    background:var(--brown-500);
-
-    color:#fff;
-
-    border:2px solid #fff;
-
-    box-shadow:
-        0 12px 25px rgba(139,69,19,.20);
-
-    transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        background var(--transition-fast);
-
-}
-
-
-.btn.primary:hover{
-
-    background:#a0522d;
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 18px 28px rgba(139,69,19,.28);
-
-}
-
-
-.btn.ghost{
-
-    background:transparent;
-
-    color:var(--brown-700);
-
-    border:
-        2px solid rgba(93,58,26,.12);
-
-    transition:
-        background var(--transition-default),
-        transform var(--transition-default);
-
-}
-
-
-.btn.ghost:hover{
-
-    background:rgba(255,210,138,.18);
-
-    transform:translateY(-2px);
-
-}
-
-
-/* ==========================================================
-   PRODUTOS
-========================================================== */
-
+/* Padrão de bolinhas suave atrás dos Produtos */
 #produtos{
-
-    background-color:var(--bg);
-
-    background-image:
-        radial-gradient(
-            rgba(139,69,19,.08) 1.5px,
-            transparent 1.5px
-        );
-
-    background-size:22px 22px;
-
+  background-color:var(--bg);
+  background-image: radial-gradient(rgba(139,69,19,0.08) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
 }
 
-
-#produtos .cards{
-
-    position:relative;
-
-    z-index:1;
-
-}
-
-
-/* ==========================================================
-   CARDS
-========================================================== */
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
-
-    gap:26px;
-
-}
-
-
-.card{
-
-    overflow:hidden;
-
-    padding:22px;
-
-    background:var(--card);
-
-    border-radius:var(--radius-md);
-
-    border:var(--border-card);
-
-    text-align:center;
-
-    box-shadow:var(--shadow-card);
-
-    transition:
-        transform var(--transition-default);
-
-}
-
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-
-.card-image{
-
-    width:calc(100% + 44px);
-
-    height:200px;
-
-    object-fit:cover;
-
-    display:block;
-
-    margin:-22px -22px 16px -22px;
-
-}
-
-
-.card h3{
-
-    margin-bottom:10px;
-
-    color:var(--brown-500);
-
-}
-
-
-.card p{
-
-    color:var(--text-secondary);
-
-}
-
-
-.price{
-
-    margin-top:16px;
-
-    color:#b85b16;
-
-    font-weight:700;
-
-} /* ==========================================================
-   INSTAGRAM
-========================================================== */
-
-#instagram{
-
-    background-color:#fdf6f0;
-
-    background-image:
-        radial-gradient(
-            rgba(228,64,95,.05) 1.5px,
-            transparent 1.5px
-        ),
-        linear-gradient(
-            135deg,
-            #fdf6f0 0%,
-            #fff8f2 100%
-        );
-
-    background-size:
-        22px 22px,
-        100% 100%;
-
-}
-
-
-#instagram .instagram-box{
-
-    position:relative;
-
-    z-index:1;
-
-}
-
-
-/* ==========================================================
-   INSTAGRAM BOX
-========================================================== */
-
-.instagram-box{
-
-    max-width:600px;
-
-    margin:0 auto;
-
-    padding:60px 40px;
-
-    border-radius:var(--radius-lg);
-
-    background:
-        linear-gradient(
-            135deg,
-            #E4405F 0%,
-            #d63447 100%
-        );
-
-    color:#fff;
-
-    text-align:center;
-
-    box-shadow:
-        0 20px 60px rgba(228,64,95,.25);
-
-}
-
-
-.instagram-box h3{
-
-    margin-bottom:16px;
-
-    font-size:36px;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-}
-
-
-.instagram-box p{
-
-    margin-bottom:28px;
-
-    font-size:16px;
-
-    line-height:1.7;
-
-    opacity:.95;
-
-}
-
-
-.btn.instagram{
-
-    padding:14px 32px;
-
-    background:#fff;
-
-    color:var(--instagram);
-
-    border:none;
-
-    font-size:16px;
-
-    font-weight:700;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.15);
-
-    transition:
-        transform var(--transition-default),
-        box-shadow var(--transition-default);
-
-}
-
-
-.btn.instagram:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.20);
-
-}
-
-
-/* ==========================================================
-   SOBRE
-========================================================== */
-
+/* Padrão de listras diagonais suave atrás do Sobre */
 #sobre{
-
-    max-width:900px;
-
-    margin:0 auto;
-
-    text-align:center;
-
-    color:var(--text-primary);
-
-    background-color:var(--bg);
-
-    background-image:
-        repeating-linear-gradient(
-            45deg,
-            rgba(255,210,138,.15) 0px,
-            rgba(255,210,138,.15) 2px,
-            transparent 2px,
-            transparent 14px
-        );
-
+  background-color:var(--bg);
+  background-image: repeating-linear-gradient(45deg, rgba(255,210,138,0.15) 0px, rgba(255,210,138,0.15) 2px, transparent 2px, transparent 14px);
 }
 
-
-#sobre .about-card{
-
-    position:relative;
-
-    z-index:1;
-
-}
-
-
-/* ==========================================================
-   ABOUT CARD
-========================================================== */
-
-.about-card{
-
-    padding:32px 30px;
-
-    border:
-        2px solid rgba(141,101,69,.20);
-
-    border-radius:var(--radius-lg);
-
-    background:
-        rgba(255,255,255,.95);
-
-    box-shadow:
-        0 20px 50px rgba(93,58,26,.12);
-
-    text-align:left;
-
-    line-height:1.8;
-
-    color:#533823;
-
-}
-
-
-.about-card p{
-
-    margin-bottom:18px;
-
-    font-size:18px;
-
-}
-
-
-.about-card strong{
-
-    display:block;
-
-    margin-bottom:16px;
-
-    color:var(--brown-700);
-
-    font-size:22px;
-
-}
-
-
-/* ==========================================================
-   CONTATO
-========================================================== */
-
+/* Padrão de bolinhas maiores atrás do Contato */
 #contato{
-
-    max-width:900px;
-
-    margin:0 auto;
-
-    text-align:center;
-
-    color:var(--text-primary);
-
-    background-color:var(--bg);
-
-    background-image:
-        radial-gradient(
-            rgba(93,58,26,.06) 2px,
-            transparent 2px
-        );
-
-    background-size:30px 30px;
-
+  background-color:var(--bg);
+  background-image: radial-gradient(rgba(93,58,26,0.06) 2px, transparent 2px);
+  background-size: 30px 30px;
 }
 
-
+/* Conteúdo das seções fica por cima do padrão */
+#produtos .cards,
+#sobre .about-card,
 #contato > p,
 #contato .botao,
 #contato .feedback-box{
-
-    position:relative;
-
-    z-index:1;
-
+  position:relative;
+  z-index:1;
 }
 
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px}
+.card{background:var(--card);border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.07);transition:transform .28s;overflow:hidden;border:1px solid rgba(139,69,19,0.08)}
+.card:hover{transform:translateY(-8px)}
+.card-image{width:calc(100% + 44px);height:200px;object-fit:cover;display:block;margin:-22px -22px 16px -22px}
+.card h3{color:var(--brown-500);margin-bottom:10px}
+.card p{color:#6a4f46}
+.price{margin-top:16px;color:#b85b16;font-weight:700}
 
-/* ==========================================================
-   FEEDBACK BOX
-========================================================== */
+#instagram{
+  background-color:#fdf6f0;
+  background-image:
+    radial-gradient(rgba(228,64,95,0.05) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, #fdf6f0 0%, #fff8f2 100%);
+  background-size: 22px 22px, 100% 100%;
+}
+
+#instagram .instagram-box{position:relative;z-index:1}
+
+.instagram-box{
+  max-width:600px;
+  margin:0 auto;
+  background:linear-gradient(135deg, #E4405F 0%, #d63447 100%);
+  border-radius:26px;
+  padding:60px 40px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(228,64,95,0.25);
+  color:#fff;
+}
+
+.instagram-box h3{
+  font-size:36px;
+  margin-bottom:16px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.instagram-box p{
+  font-size:16px;
+  line-height:1.7;
+  margin-bottom:28px;
+  opacity:0.95;
+}
+
+.instagram-box .btn.instagram{
+  background:#fff;
+  color:var(--instagram);
+  border:none;
+  padding:14px 32px;
+  font-weight:700;
+  font-size:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  transition:all .3s;
+}
+
+.instagram-box .btn.instagram:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.2);
+}
+
+#sobre,#contato{max-width:900px;margin:0 auto;text-align:center;color:#5a3b32}
 
 .feedback-box{
-
-    max-width:680px;
-
-    margin:18px auto 14px;
-
-    padding:20px 22px;
-
-    border:
-        1px solid rgba(255,210,138,.40);
-
-    border-radius:var(--radius-md);
-
-    background:
-        rgba(255,210,138,.18);
-
-    color:var(--text-primary);
-
-    font-style:italic;
-
-    line-height:1.7;
-
-    text-align:left;
-
+  background:rgba(255,210,138,0.18);
+  border:1px solid rgba(255,210,138,0.4);
+  border-radius:18px;
+  padding:20px 22px;
+  margin:18px auto 14px;
+  max-width:680px;
+  color:#5a3b32;
+  font-style:italic;
+  line-height:1.7;
+  text-align:left;
 }
-
 
 .feedback-box h3{
-
-    margin-bottom:10px;
-
-    color:var(--brown-700);
-
-    font-size:22px;
-
+  margin-bottom:10px;
+  color:var(--brown-700);
+  font-size:22px;
 }
-
 
 .feedback-box p:last-child{
-
-    margin-top:10px;
-
-    font-weight:700;
-
-}/* ==========================================================
-   FOOTER
-========================================================== */
-
-footer{
-
-    background:var(--brown-700);
-
-    color:#fff;
-
-    padding:28px 0;
-
-    margin-top:40px;
-
-    text-align:center;
-
+  margin-top:10px;
+  font-weight:700;
 }
 
+.about-card{
+  background:rgba(255,255,255,0.95);
+  border:2px solid rgba(141,101,69,0.2);
+  border-radius:26px;
+  padding:32px 30px;
+  box-shadow:0 20px 50px rgba(93,58,26,0.12);
+  text-align:left;
+  line-height:1.8;
+  color:#533823;
+}
 
-/* ==========================================================
-   WHATSAPP FLUTUANTE
-========================================================== */
+.about-card p{
+  margin-bottom:18px;
+  font-size:18px;
+}
+
+.about-card strong{
+  display:block;
+  font-size:22px;
+  color:var(--brown-700);
+  margin-bottom:16px;
+}
+
+footer{background:var(--brown-700);color:#fff;padding:28px 0;margin-top:40px;text-align:center}
 
 .whatsapp-float{
-
-    position:fixed;
-
-    right:24px;
-
-    bottom:24px;
-
-    z-index:1300;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:60px;
-
-    height:60px;
-
-    border-radius:50%;
-
-    background:#25D366;
-
-    box-shadow:
-        0 8px 24px rgba(37,211,102,.4);
-
-    transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast);
-
-    animation:pulse 2.5s infinite;
-
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  z-index: 1300;
+  transition: transform .2s, box-shadow .2s;
+  animation: pulse 2.5s infinite;
 }
-
 
 .whatsapp-float:hover{
-
-    transform:scale(1.1);
-
-    box-shadow:
-        0 10px 30px rgba(37,211,102,.55);
-
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(37,211,102,0.55);
 }
-
-
-.whatsapp-float:focus-visible{
-
-    outline:3px solid #fff;
-
-    outline-offset:5px;
-
-}
-
-
-.whatsapp-float:active{
-
-    transform:scale(1.05);
-
-}
-
-
-/* ==========================================================
-   ANIMAÇÃO WHATSAPP
-========================================================== */
 
 @keyframes pulse{
-
-    0%{
-
-        box-shadow:
-            0 0 0 0 rgba(37,211,102,.5);
-
-    }
-
-
-    70%{
-
-        box-shadow:
-            0 0 0 14px rgba(37,211,102,0);
-
-    }
-
-
-    100%{
-
-        box-shadow:
-            0 0 0 0 rgba(37,211,102,0);
-
-    }
-
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
-
-
-/* ==========================================================
-   REDUÇÃO DE MOVIMENTO
-========================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-    .whatsapp-float{
-
-        animation:none;
-
-    }
-
-}
-
-
-/* ==========================================================
-   RESPONSIVIDADE
-========================================================== */
-
-
-/* Notebook / Tablet */
 
 @media(max-width:900px){
-
-    .hero-content{
-
-        flex-direction:column-reverse;
-
-        align-items:center;
-
-        text-align:center;
-
-        padding:40px 0;
-
-    }
-
-
-    .hero-media{
-
-        width:320px;
-
-    }
-
-
-    .hero-text h1{
-
-        font-size:34px;
-
-    }
-
-
-    .hero-text p{
-
-        font-size:17px;
-
-    }
-
-
-    .hero-delivery-info{
-
-        align-items:center;
-
-    }
-
-
-    .header-inner{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:14px;
-
-    }
-
-
-    .main-nav{
-
-        display:flex;
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-        gap:10px;
-
-    }
-
-
-    .main-nav a{
-
-        margin-left:12px;
-
-    }
-
-
-    .instagram-box{
-
-        padding:40px 30px;
-
-    }
-
-
-    .instagram-box h3{
-
-        font-size:28px;
-
-    }
-
+  .hero-content{flex-direction:column-reverse;align-items:center;text-align:center;padding:40px 0}
+  .hero-media{width:320px}
+  .hero-text h1{font-size:34px}
+  .hero-text p{font-size:17px}
+  .main-nav a{margin-left:12px}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:14px}
+  .main-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+  .instagram-box{padding:40px 30px}
+  .instagram-box h3{font-size:28px}
 }
-
-
-/* ==========================================================
-   CELULAR GRANDE
-========================================================== */
 
 @media(max-width:640px){
-
-    body{
-
-        padding-top:80px;
-
-    }
-
-
-    section{
-
-        padding:50px 0;
-
-    }
-
-
-    .hero-content{
-
-        padding:32px 0;
-
-    }
-
-
-    .hero-media{
-
-        width:260px;
-
-    }
-
-
-    .hero-text h1{
-
-        font-size:28px;
-
-    }
-
-
-    .hero-text p{
-
-        font-size:16px;
-
-    }
-
-
-    .hero-ctas{
-
-        flex-direction:column;
-
-        align-items:center;
-
-    }
-
-
-    .instagram-box{
-
-        padding:30px 20px;
-
-    }
-
-
-    .instagram-box h3{
-
-        font-size:24px;
-
-    }
-
-
-    .instagram-box p{
-
-        font-size:14px;
-
-    }
-
-
-    .delivery-badge{
-
-        font-size:.8rem;
-
-        padding:6px 12px;
-
-    }
-
+  .hero-content{padding:32px 0}
+  .hero-media{width:260px}
+  .hero-text h1{font-size:28px}
+  .hero-text p{font-size:16px}
+  .hero-ctas{flex-direction:column;align-items:center}
+  .instagram-box{padding:30px 20px}
+  .instagram-box h3{font-size:24px}
+  .instagram-box p{font-size:14px}
 }
 
-
-/* ==========================================================
-   CELULAR PEQUENO
-========================================================== */
-
 @media(max-width:480px){
+  .brand-text{display:none}
+  .brand-logo{width:48px;height:48px}
+  .hero-media{width:220px}
+  .hero-text p{font-size:15px}
+  .cards{gap:18px}
+  section{padding:50px 0}
+  .about-card{padding:22px 20px;font-size:15px}
+  .instagram-box{padding:25px 18px}
+  .instagram-box h3{font-size:22px;margin-bottom:12px}
+  .instagram-box p{font-size:13px;margin-bottom:20px}
+  .whatsapp-float{
+    width: 52px;
+    height: 52px;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+.hero-delivery-info {
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin: 16px 0 22px;
+}
 
-    .brand-text{
+.delivery-badge {
+display: inline-flex;
+align-items: center;
+width: fit-content;
+background: rgba(255, 210, 138, 0.35);
+border: 1px solid rgba(139, 69, 19, 0.25);
+border-radius: 20px;
+padding: 7px 16px;
+font-size: 0.9rem;
+font-weight: 600;
+color: var(--brown-700);
+}
 
-        display:none;
+@media (max-width: 900px) {
+.hero-delivery-info {
+align-items: center;
+}
+}
 
-    }
-
-
-    .brand-logo{
-
-        width:48px;
-
-        height:48px;
-
-    }
-
-
-    .hero-media{
-
-        width:220px;
-
-    }
-
-
-    .hero-text p{
-
-        font-size:15px;
-
-    }
-
-
-    .cards{
-
-        gap:18px;
-
-    }
-
-
-    .about-card{
-
-        padding:22px 20px;
-
-    }
-
-
-    .instagram-box{
-
-        padding:25px 18px;
-
-    }
-
-
-    .instagram-box h3{
-
-        margin-bottom:12px;
-
-        font-size:22px;
-
-    }
-
-
-    .instagram-box p{
-
-        margin-bottom:20px;
-
-        font-size:13px;
-
-    }
-
-
-    .whatsapp-float{
-
-        width:52px;
-
-        height:52px;
-
-        right:16px;
-
-        bottom:16px;
-
-    }
-
+@media (max-width: 480px) {
+.delivery-badge {
+font-size: 0.8rem;
+padding: 6px 12px;
+}
 }
