@@ -59,6 +59,22 @@ header{
 .hero{
   padding-top:110px;
   padding-bottom:60px;
+  background: radial-gradient(circle at 15% 20%, rgba(255,210,138,0.35) 0%, transparent 45%),
+              radial-gradient(circle at 85% 80%, rgba(139,69,19,0.10) 0%, transparent 50%),
+              var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  top:-40px; right:-40px;
+  width:220px; height:220px;
+  background: var(--accent);
+  opacity:0.15;
+  border-radius:50%;
+  filter: blur(10px);
 }
 
 .hero-content{
@@ -67,6 +83,8 @@ header{
   justify-content:space-between;
   gap:40px;
   padding:60px 0;
+  position:relative;
+  z-index:1;
 }
 
 .hero-text{flex:1;max-width:640px}
@@ -87,7 +105,7 @@ section{padding:70px 0}
 section h2{text-align:center;margin-bottom:28px;color:var(--brown-700);font-size:32px}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px}
-.card{background:var(--card);border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.07);transition:transform .28s;overflow:hidden}
+.card{background:var(--card);border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.07);transition:transform .28s;overflow:hidden;border:1px solid rgba(139,69,19,0.08)}
 .card:hover{transform:translateY(-8px)}
 .card-image{width:calc(100% + 44px);height:200px;object-fit:cover;display:block;margin:-22px -22px 16px -22px}
 .card h3{color:var(--brown-500);margin-bottom:10px}
@@ -188,6 +206,34 @@ section h2{text-align:center;margin-bottom:28px;color:var(--brown-700);font-size
 
 footer{background:var(--brown-700);color:#fff;padding:28px 0;margin-top:40px;text-align:center}
 
+.whatsapp-float{
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  z-index: 1300;
+  transition: transform .2s, box-shadow .2s;
+  animation: pulse 2.5s infinite;
+}
+
+.whatsapp-float:hover{
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(37,211,102,0.55);
+}
+
+@keyframes pulse{
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
 @media(max-width:900px){
   .hero-content{flex-direction:column-reverse;align-items:center;text-align:center;padding:40px 0}
   .hero-media{width:320px}
@@ -222,6 +268,12 @@ footer{background:var(--brown-700);color:#fff;padding:28px 0;margin-top:40px;tex
   .instagram-box{padding:25px 18px}
   .instagram-box h3{font-size:22px;margin-bottom:12px}
   .instagram-box p{font-size:13px;margin-bottom:20px}
+  .whatsapp-float{
+    width: 52px;
+    height: 52px;
+    bottom: 16px;
+    right: 16px;
+  }
 }
 .hero-delivery-info {
 	display: flex;
