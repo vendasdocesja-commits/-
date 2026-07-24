@@ -85,13 +85,12 @@ section{padding:70px 0}
 
 section h2{text-align:center;margin-bottom:28px;color:var(--brown-700);font-size:32px}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
-.card{background:var(--card);border-radius:var(--radius);padding:0;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.07);transition:transform .28s;overflow:hidden}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px}
+.card{background:var(--card);border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.07);transition:transform .28s;overflow:hidden}
 .card:hover{transform:translateY(-8px)}
-.card-image{width:100%;height:250px;object-fit:cover;display:block}
-.card h3{color:var(--brown-500);margin-bottom:10px;padding:16px 22px 0 22px}
-.card p{color:#6a4f46;padding:10px 22px}
-.card h4{color:#b85b16;font-weight:700;padding:0 22px 22px 22px;margin:0}
+.card-image{width:calc(100% + 44px);height:200px;object-fit:cover;display:block;margin:-22px -22px 16px -22px}
+.card h3{color:var(--brown-500);margin-bottom:10px}
+.card p{color:#6a4f46}
 .price{margin-top:16px;color:#b85b16;font-weight:700}
 
 #sobre,#contato{max-width:900px;margin:0 auto;text-align:center;color:#5a3b32}
